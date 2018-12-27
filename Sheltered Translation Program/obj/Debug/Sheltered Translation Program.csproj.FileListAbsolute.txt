@@ -1,0 +1,11 @@
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\bin\Debug\Sheltered Translation Program.exe.config
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\bin\Debug\Sheltered Translation Program.exe
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\bin\Debug\Sheltered Translation Program.pdb
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered Translation Program.csprojAssemblyReference.cache
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered_Translation_Program.FileLoad.resources
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered_Translation_Program.Properties.Resources.resources
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered_Translation_Program.Translation.resources
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered Translation Program.csproj.GenerateResource.cache
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered Translation Program.csproj.CoreCompileInputs.cache
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered Translation Program.exe
+C:\Users\rlaql\source\repos\Sheltered Translation Program\.git\Sheltered-Translation-Program\Sheltered Translation Program\obj\Debug\Sheltered Translation Program.pdb
