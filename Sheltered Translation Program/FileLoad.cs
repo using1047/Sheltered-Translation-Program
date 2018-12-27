@@ -13,6 +13,9 @@ namespace Sheltered_Translation_Program
 {
     public partial class FileLoad : Form
     {
+        const int MAXFILE = 8;
+        public string FolderPath = "";
+
         public FileLoad()
         {
             InitializeComponent();
@@ -24,10 +27,13 @@ namespace Sheltered_Translation_Program
             {
                 fbd.Description = "Language 폴더 선택\nSelect Language Folder";
                 fbd.ShowDialog();
+
                 string path = fbd.SelectedPath;
+
                 if (CheckedFiles(path) == true)
                 {
                     btn_translation.Enabled = true;
+                    txt_Path.Text = path;
                 }
                 else MessageBox.Show("파일이 부족합니다.");
             }
@@ -35,7 +41,8 @@ namespace Sheltered_Translation_Program
 
         private void btn_translation_Click(object sender, EventArgs e)
         {
-
+            FolderPath = txt_Path.Text;
+            this.Close();
         }
 
         private bool CheckedFiles(string Path)
@@ -43,7 +50,7 @@ namespace Sheltered_Translation_Program
             DirectoryInfo di = new DirectoryInfo(Path);
             FileInfo[] fi = new FileInfo[di.GetFiles().Count()];
             
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < MAXFILE; i++)
             {
                 fi = di.GetFiles(FileName(i));
                 if (fi.Count() == 0) return false;

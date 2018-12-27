@@ -30,7 +30,7 @@
         {
             this.btn_translation = new System.Windows.Forms.Button();
             this.btn_open = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Path = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_translation
@@ -54,19 +54,19 @@
             this.btn_open.UseVisualStyleBackColor = true;
             this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
             // 
-            // textBox1
+            // txt_Path
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 25);
-            this.textBox1.TabIndex = 2;
+            this.txt_Path.Location = new System.Drawing.Point(12, 21);
+            this.txt_Path.Name = "txt_Path";
+            this.txt_Path.Size = new System.Drawing.Size(346, 25);
+            this.txt_Path.TabIndex = 2;
             // 
             // FileLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 93);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_Path);
             this.Controls.Add(this.btn_open);
             this.Controls.Add(this.btn_translation);
             this.Name = "FileLoad";
@@ -80,7 +80,7 @@
 
         private System.Windows.Forms.Button btn_translation;
         private System.Windows.Forms.Button btn_open;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Path;
     }
 }
 

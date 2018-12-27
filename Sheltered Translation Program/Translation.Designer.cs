@@ -32,13 +32,13 @@
             this.lbl_Language = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_FileName = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.dgv_Data = new System.Windows.Forms.DataGridView();
+            this.rtxt_Value = new System.Windows.Forms.RichTextBox();
             this.btn_Change = new System.Windows.Forms.Button();
             this.col_ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_OriginalCharacters = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_Language
@@ -46,7 +46,7 @@
             this.cb_Language.FormattingEnabled = true;
             this.cb_Language.Location = new System.Drawing.Point(163, 21);
             this.cb_Language.Name = "cb_Language";
-            this.cb_Language.Size = new System.Drawing.Size(170, 23);
+            this.cb_Language.Size = new System.Drawing.Size(213, 23);
             this.cb_Language.TabIndex = 1;
             // 
             // lbl_Language
@@ -74,35 +74,35 @@
             this.cb_FileName.FormattingEnabled = true;
             this.cb_FileName.Location = new System.Drawing.Point(163, 50);
             this.cb_FileName.Name = "cb_FileName";
-            this.cb_FileName.Size = new System.Drawing.Size(170, 23);
+            this.cb_FileName.Size = new System.Drawing.Size(213, 23);
             this.cb_FileName.TabIndex = 4;
             // 
-            // dataGridView1
+            // dgv_Data
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_ItemName,
             this.col_Value,
             this.col_OriginalCharacters});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 89);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(829, 150);
-            this.dataGridView1.TabIndex = 5;
+            this.dgv_Data.Location = new System.Drawing.Point(15, 89);
+            this.dgv_Data.Name = "dgv_Data";
+            this.dgv_Data.RowTemplate.Height = 27;
+            this.dgv_Data.Size = new System.Drawing.Size(1169, 386);
+            this.dgv_Data.TabIndex = 5;
             // 
-            // richTextBox1
+            // rtxt_Value
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(15, 254);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(829, 96);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
+            this.rtxt_Value.Location = new System.Drawing.Point(12, 481);
+            this.rtxt_Value.Name = "rtxt_Value";
+            this.rtxt_Value.Size = new System.Drawing.Size(1172, 96);
+            this.rtxt_Value.TabIndex = 6;
+            this.rtxt_Value.Text = "";
             // 
             // btn_Change
             // 
-            this.btn_Change.Location = new System.Drawing.Point(15, 356);
+            this.btn_Change.Location = new System.Drawing.Point(12, 583);
             this.btn_Change.Name = "btn_Change";
-            this.btn_Change.Size = new System.Drawing.Size(829, 42);
+            this.btn_Change.Size = new System.Drawing.Size(1172, 42);
             this.btn_Change.TabIndex = 7;
             this.btn_Change.Text = "수정 확인";
             this.btn_Change.UseVisualStyleBackColor = true;
@@ -123,23 +123,23 @@
             // 
             this.col_OriginalCharacters.HeaderText = "Original Characters";
             this.col_OriginalCharacters.Name = "col_OriginalCharacters";
-            this.col_OriginalCharacters.Width = 85;
+            this.col_OriginalCharacters.Width = 160;
             // 
             // Translation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 409);
+            this.ClientSize = new System.Drawing.Size(1199, 637);
             this.Controls.Add(this.btn_Change);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.rtxt_Value);
+            this.Controls.Add(this.dgv_Data);
             this.Controls.Add(this.cb_FileName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Language);
             this.Controls.Add(this.cb_Language);
             this.Name = "Translation";
             this.Text = "Translation";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,8 +151,8 @@
         private System.Windows.Forms.Label lbl_Language;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_FileName;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.DataGridView dgv_Data;
+        private System.Windows.Forms.RichTextBox rtxt_Value;
         private System.Windows.Forms.Button btn_Change;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Value;

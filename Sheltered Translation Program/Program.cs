@@ -16,7 +16,7 @@ namespace Sheltered_Translation_Program
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FileLoad());
+            Application.Run(new Translation());
         }
     }
 }
