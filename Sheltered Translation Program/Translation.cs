@@ -13,20 +13,28 @@ namespace Sheltered_Translation_Program
 {
     public partial class Translation : Form
     {
+        // Need Files Count
         const int MAXFILE = 8;
+        // Asset path
         string path = "";
+        // File Load Form
         FileLoad fileLoad = new FileLoad();
+        // Need Files
         FileInfo[] files;
+
+        bool CompleteSet = false;
 
         public Translation()
         {
             InitializeComponent();
             fileLoad.Show();
 
+            // Event
             fileLoad.FormClosed += FileLoad_FormClosed;
             cb_Language.SelectedIndexChanged += Cb_Language_SelectedIndexChanged;
         }
 
+        // File Check Logic & Setting
         private void FileLoad_FormClosed(object sender, FormClosedEventArgs e)
         {
             path = fileLoad.FolderPath;
@@ -40,9 +48,11 @@ namespace Sheltered_Translation_Program
                     files[i] = new FileInfo(path + "\\" + FileName(i));
                 }
                 SetLanguage();
+                CompleteSet = true;
             }
         }
 
+        // Set Surported Game Language List
         private void SetLanguage()
         {
             string file = cb_FileName.SelectedItem.ToString();
@@ -55,6 +65,7 @@ namespace Sheltered_Translation_Program
             cb_Language.SelectedIndex = 0;
         }
 
+        // Set Asset Folder in File List
         private void SetFile()
         {
             for (int i = 0; i < MAXFILE; i++)
@@ -64,9 +75,10 @@ namespace Sheltered_Translation_Program
             cb_FileName.SelectedIndex = 0;
         }
 
+        // Change Language
         private void Cb_Language_SelectedIndexChanged(object sender, EventArgs e)
         {
-            while(dgv_Data.Rows.Count > 1)
+            while (dgv_Data.Rows.Count > 1)
             {
                 dgv_Data.Rows.RemoveAt(0);
             }
@@ -85,18 +97,76 @@ namespace Sheltered_Translation_Program
             sr.Close();
         }
 
-        enum LanguageNames
+        private void cb_FileName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (CompleteSet == true)
+            {
+                while (dgv_Data.Rows.Count > 1)
+                {
+                    dgv_Data.Rows.RemoveAt(0);
+                }
+                StreamReader sr = new StreamReader(files[cb_FileName.SelectedIndex].FullName);
+                while (!sr.EndOfStream)
+                {
+                    string[] str = sr.ReadLine().Split('\t');
+                    if (str[0] == "") { }
+                    else
+                    {
+                        string[] row = { str[0], str[cb_Language.SelectedIndex + 1], str[cb_Language.SelectedIndex + 1].Length.ToString() };
+                        dgv_Data.Rows.Add(row);
+                    }
+                }
+                dgv_Data.Refresh();
+                sr.Close();
+            }
         }
 
+        // Right - Top //
+        // Undo, Google Translate //
+        private void btn_Undo_Click(object sender, EventArgs e)
+        {
+            rtb_Value.Text = dgv_Data.CurrentCell.Value.ToString();
+        }
+
+        private void btn_GoogleTranslation_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://translate.google.com/?um=1&ie=UTF-8&hl=ko&client=tw-ob#view=home&op=translate&sl=zh-CN&tl=ko&text=" + rtb_Value.Text);
+        }
+
+        // Right - Mid //
+        // DataGridView Event, Value Characters Count View //
+        private void dgv_Data_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                string value = dgv_Data.CurrentCell.Value.ToString();
+                rtb_Value.Text = value;
+                lbl_Old.Text = value.Length.ToString();
+            }
+        }
+
+        private void rtb_Value_TextChanged(object sender, EventArgs e)
+        {
+            lbl_New.Text = rtb_Value.Text.Length.ToString();
+        }
+
+        // Right - Bot //
+        // Change DataGridView Value //
+        private void btn_Change_Click(object sender, EventArgs e)
+        {
+            dgv_Data.CurrentCell.Value = rtb_Value.Text;
+            dgv_Data.Refresh();
+        }
+
+        // Enum Data //
+        // Need Files Name, Files -> EnumToString //
         enum FileNames
         {
             Localization = 0,
-            Pool_FamilyNames,
-            Pool_FemaleNames,
-            Pool_MaleNames,
-            Pool_PetNames,
+            Pool_FamilyNames,  // Will Remove
+            Pool_FemaleNames, // Will Remove
+            Pool_MaleNames,    // Will Remove
+            Pool_PetNames,       // Will Remove
             PS4Lang,
             TempLocalization,
             XboneLang = 7
@@ -108,10 +178,10 @@ namespace Sheltered_Translation_Program
             switch (number)
             {
                 case 0: Name = FileNames.Localization.ToString(); break;
-                case 1: Name = FileNames.Pool_FamilyNames.ToString(); break;
-                case 2: Name = FileNames.Pool_FemaleNames.ToString(); break;
-                case 3: Name = FileNames.Pool_MaleNames.ToString(); break;
-                case 4: Name = FileNames.Pool_PetNames.ToString(); break;
+                case 1: Name = FileNames.Pool_FamilyNames.ToString(); break;    // Will Remove
+                case 2: Name = FileNames.Pool_FemaleNames.ToString(); break;  // Will Remove
+                case 3: Name = FileNames.Pool_MaleNames.ToString(); break;     // Will Remove
+                case 4: Name = FileNames.Pool_PetNames.ToString(); break;       // Will Remove
                 case 5: Name = FileNames.PS4Lang.ToString(); break;
                 case 6: Name = FileNames.TempLocalization.ToString(); break;
                 case 7: Name = FileNames.XboneLang.ToString(); break;
