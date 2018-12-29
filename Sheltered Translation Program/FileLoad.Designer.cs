@@ -70,7 +70,10 @@
             this.Controls.Add(this.btn_open);
             this.Controls.Add(this.btn_translation);
             this.Name = "FileLoad";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Load";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
