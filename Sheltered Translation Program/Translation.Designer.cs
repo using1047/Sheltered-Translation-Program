@@ -45,6 +45,7 @@
             this.lbl_New = new System.Windows.Forms.Label();
             this.btn_GoogleTranslation = new System.Windows.Forms.Button();
             this.btn_Undo = new System.Windows.Forms.Button();
+            this.btn_SaveFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,9 +120,9 @@
             // 
             // btn_Change
             // 
-            this.btn_Change.Location = new System.Drawing.Point(1193, 624);
+            this.btn_Change.Location = new System.Drawing.Point(1193, 647);
             this.btn_Change.Name = "btn_Change";
-            this.btn_Change.Size = new System.Drawing.Size(228, 52);
+            this.btn_Change.Size = new System.Drawing.Size(228, 29);
             this.btn_Change.TabIndex = 7;
             this.btn_Change.Text = "값 변경(Change Value)";
             this.btn_Change.UseVisualStyleBackColor = true;
@@ -130,7 +131,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1190, 94);
+            this.label2.Location = new System.Drawing.Point(1191, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 8;
@@ -139,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1190, 572);
+            this.label3.Location = new System.Drawing.Point(1190, 597);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 15);
             this.label3.TabIndex = 9;
@@ -148,7 +149,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1190, 598);
+            this.label4.Location = new System.Drawing.Point(1190, 623);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 15);
             this.label4.TabIndex = 10;
@@ -156,9 +157,9 @@
             // 
             // rtb_Value
             // 
-            this.rtb_Value.Location = new System.Drawing.Point(1194, 122);
+            this.rtb_Value.Location = new System.Drawing.Point(1193, 157);
             this.rtb_Value.Name = "rtb_Value";
-            this.rtb_Value.Size = new System.Drawing.Size(227, 437);
+            this.rtb_Value.Size = new System.Drawing.Size(228, 437);
             this.rtb_Value.TabIndex = 12;
             this.rtb_Value.Text = "";
             this.rtb_Value.TextChanged += new System.EventHandler(this.rtb_Value_TextChanged);
@@ -166,7 +167,7 @@
             // lbl_Old
             // 
             this.lbl_Old.AutoSize = true;
-            this.lbl_Old.Location = new System.Drawing.Point(1372, 572);
+            this.lbl_Old.Location = new System.Drawing.Point(1372, 597);
             this.lbl_Old.Name = "lbl_Old";
             this.lbl_Old.Size = new System.Drawing.Size(0, 15);
             this.lbl_Old.TabIndex = 13;
@@ -174,36 +175,47 @@
             // lbl_New
             // 
             this.lbl_New.AutoSize = true;
-            this.lbl_New.Location = new System.Drawing.Point(1372, 598);
+            this.lbl_New.Location = new System.Drawing.Point(1372, 623);
             this.lbl_New.Name = "lbl_New";
             this.lbl_New.Size = new System.Drawing.Size(0, 15);
             this.lbl_New.TabIndex = 14;
             // 
             // btn_GoogleTranslation
             // 
-            this.btn_GoogleTranslation.Location = new System.Drawing.Point(1326, 86);
+            this.btn_GoogleTranslation.Location = new System.Drawing.Point(1190, 86);
             this.btn_GoogleTranslation.Name = "btn_GoogleTranslation";
-            this.btn_GoogleTranslation.Size = new System.Drawing.Size(95, 30);
+            this.btn_GoogleTranslation.Size = new System.Drawing.Size(231, 30);
             this.btn_GoogleTranslation.TabIndex = 15;
-            this.btn_GoogleTranslation.Text = "구글 번역기";
+            this.btn_GoogleTranslation.Text = "구글 번역기(Google Transtor)";
             this.btn_GoogleTranslation.UseVisualStyleBackColor = true;
             this.btn_GoogleTranslation.Click += new System.EventHandler(this.btn_GoogleTranslation_Click);
             // 
             // btn_Undo
             // 
-            this.btn_Undo.Location = new System.Drawing.Point(1238, 86);
+            this.btn_Undo.Location = new System.Drawing.Point(1291, 122);
             this.btn_Undo.Name = "btn_Undo";
-            this.btn_Undo.Size = new System.Drawing.Size(82, 30);
+            this.btn_Undo.Size = new System.Drawing.Size(130, 32);
             this.btn_Undo.TabIndex = 16;
-            this.btn_Undo.Text = "초기화";
+            this.btn_Undo.Text = "초기화(Undo)";
             this.btn_Undo.UseVisualStyleBackColor = true;
             this.btn_Undo.Click += new System.EventHandler(this.btn_Undo_Click);
+            // 
+            // btn_SaveFile
+            // 
+            this.btn_SaveFile.Location = new System.Drawing.Point(1190, 21);
+            this.btn_SaveFile.Name = "btn_SaveFile";
+            this.btn_SaveFile.Size = new System.Drawing.Size(231, 51);
+            this.btn_SaveFile.TabIndex = 18;
+            this.btn_SaveFile.Text = "저장하기(Save)";
+            this.btn_SaveFile.UseVisualStyleBackColor = true;
+            this.btn_SaveFile.Click += new System.EventHandler(this.btn_SaveFile_Click);
             // 
             // Translation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1430, 688);
+            this.Controls.Add(this.btn_SaveFile);
             this.Controls.Add(this.btn_Undo);
             this.Controls.Add(this.btn_GoogleTranslation);
             this.Controls.Add(this.lbl_New);
@@ -246,5 +258,6 @@
         private System.Windows.Forms.Label lbl_New;
         private System.Windows.Forms.Button btn_GoogleTranslation;
         private System.Windows.Forms.Button btn_Undo;
+        private System.Windows.Forms.Button btn_SaveFile;
     }
 }

@@ -43,7 +43,7 @@ namespace Sheltered_Translation_Program
             {
                 SetFile();
                 files = new FileInfo[MAXFILE];
-                for(int i = 0; i < MAXFILE; i++)
+                for (int i = 0; i < MAXFILE; i++)
                 {
                     files[i] = new FileInfo(path + "\\" + FileName(i));
                 }
@@ -63,6 +63,7 @@ namespace Sheltered_Translation_Program
                 cb_Language.Items.Add(str[i]);
             }
             cb_Language.SelectedIndex = 0;
+            sr.Close();
         }
 
         // Set Asset Folder in File List
@@ -108,6 +109,7 @@ namespace Sheltered_Translation_Program
                 StreamReader sr = new StreamReader(files[cb_FileName.SelectedIndex].FullName);
                 while (!sr.EndOfStream)
                 {
+
                     string[] str = sr.ReadLine().Split('\t');
                     if (str[0] == "") { }
                     else
@@ -122,7 +124,46 @@ namespace Sheltered_Translation_Program
         }
 
         // Right - Top //
-        // Undo, Google Translate //
+        // Save File, Undo, Google Translate //
+        private void btn_SaveFile_Click(object sender, EventArgs e)
+        {
+            StreamReader sr = new StreamReader(path + "\\" + FileName(cb_FileName.SelectedIndex));
+            List<string> Columns = new List<string>();
+
+            int p = 0;
+            while (!sr.EndOfStream)
+            {
+                string line = sr.ReadLine();
+                string[] arr = line.Split('\t');
+
+                if (arr[0] == "") arr[cb_Language.SelectedIndex] = "";
+                else
+                {
+                    arr[cb_Language.SelectedIndex + 1] = dgv_Data.Rows[p].Cells[1].Value.ToString();
+                    p++;
+                }
+
+                Columns.AddRange(arr);
+            }
+            sr.Close();
+            sr.Dispose();
+
+            StreamWriter sw = new StreamWriter(path + "\\" + FileName(cb_FileName.SelectedIndex), false, Encoding.UTF8);
+            
+            for(int line = 1; line <= Columns.Count; line++)
+            {
+                if (Columns[line - 1] == "") sw.Write("\t");
+                else
+                {
+                    sw.Write(Columns[line - 1]);
+                    if ((line + 1) % 10 != 1) sw.Write("\t");
+                }
+                if (line % 10 == 0) sw.Write("\r\n");
+            }
+            sw.Close();
+            MessageBox.Show("저장완료");
+        }
+
         private void btn_Undo_Click(object sender, EventArgs e)
         {
             rtb_Value.Text = dgv_Data.CurrentCell.Value.ToString();
