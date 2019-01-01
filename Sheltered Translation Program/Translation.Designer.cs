@@ -33,9 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_FileName = new System.Windows.Forms.ComboBox();
             this.dgv_Data = new System.Windows.Forms.DataGridView();
-            this.col_ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_OriginalCharacters = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Change = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,6 +43,10 @@
             this.btn_GoogleTranslation = new System.Windows.Forms.Button();
             this.btn_Undo = new System.Windows.Forms.Button();
             this.btn_SaveFile = new System.Windows.Forms.Button();
+            this.Col_ItemNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_OriginalCharacters = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +91,7 @@
             // 
             this.dgv_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Col_ItemNumber,
             this.col_ItemName,
             this.col_Value,
             this.col_OriginalCharacters});
@@ -99,24 +101,6 @@
             this.dgv_Data.Size = new System.Drawing.Size(1169, 587);
             this.dgv_Data.TabIndex = 5;
             this.dgv_Data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Data_CellClick);
-            // 
-            // col_ItemName
-            // 
-            this.col_ItemName.HeaderText = "Item Name";
-            this.col_ItemName.Name = "col_ItemName";
-            this.col_ItemName.Width = 200;
-            // 
-            // col_Value
-            // 
-            this.col_Value.HeaderText = "Value";
-            this.col_Value.Name = "col_Value";
-            this.col_Value.Width = 500;
-            // 
-            // col_OriginalCharacters
-            // 
-            this.col_OriginalCharacters.HeaderText = "Original Characters";
-            this.col_OriginalCharacters.Name = "col_OriginalCharacters";
-            this.col_OriginalCharacters.Width = 160;
             // 
             // btn_Change
             // 
@@ -210,6 +194,29 @@
             this.btn_SaveFile.UseVisualStyleBackColor = true;
             this.btn_SaveFile.Click += new System.EventHandler(this.btn_SaveFile_Click);
             // 
+            // Col_ItemNumber
+            // 
+            this.Col_ItemNumber.HeaderText = "Num";
+            this.Col_ItemNumber.Name = "Col_ItemNumber";
+            // 
+            // col_ItemName
+            // 
+            this.col_ItemName.HeaderText = "Item Name";
+            this.col_ItemName.Name = "col_ItemName";
+            this.col_ItemName.Width = 200;
+            // 
+            // col_Value
+            // 
+            this.col_Value.HeaderText = "Value";
+            this.col_Value.Name = "col_Value";
+            this.col_Value.Width = 500;
+            // 
+            // col_OriginalCharacters
+            // 
+            this.col_OriginalCharacters.HeaderText = "Original Characters";
+            this.col_OriginalCharacters.Name = "col_OriginalCharacters";
+            this.col_OriginalCharacters.Width = 160;
+            // 
             // Translation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -247,9 +254,6 @@
         private System.Windows.Forms.ComboBox cb_FileName;
         private System.Windows.Forms.DataGridView dgv_Data;
         private System.Windows.Forms.Button btn_Change;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Value;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_OriginalCharacters;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -259,5 +263,9 @@
         private System.Windows.Forms.Button btn_GoogleTranslation;
         private System.Windows.Forms.Button btn_Undo;
         private System.Windows.Forms.Button btn_SaveFile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col_ItemNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_OriginalCharacters;
     }
 }

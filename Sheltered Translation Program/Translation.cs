@@ -84,14 +84,16 @@ namespace Sheltered_Translation_Program
                 dgv_Data.Rows.RemoveAt(0);
             }
             StreamReader sr = new StreamReader(files[cb_FileName.SelectedIndex].FullName);
+            int checkline = 1;
             while (!sr.EndOfStream)
             {
                 string[] str = sr.ReadLine().Split('\t');
                 if (str[0] == "") { }
                 else
                 {
-                    string[] row = { str[0], str[cb_Language.SelectedIndex + 1], str[cb_Language.SelectedIndex + 1].Length.ToString() };
+                    string[] row = { checkline.ToString(), str[0], str[cb_Language.SelectedIndex + 1], str[cb_Language.SelectedIndex + 1].Length.ToString() };
                     dgv_Data.Rows.Add(row);
+                    checkline++;
                 }
             }
             dgv_Data.Refresh();
@@ -107,6 +109,7 @@ namespace Sheltered_Translation_Program
                     dgv_Data.Rows.RemoveAt(0);
                 }
                 StreamReader sr = new StreamReader(files[cb_FileName.SelectedIndex].FullName);
+                int checkline = 1;
                 while (!sr.EndOfStream)
                 {
 
@@ -116,6 +119,7 @@ namespace Sheltered_Translation_Program
                     {
                         string[] row = { str[0], str[cb_Language.SelectedIndex + 1], str[cb_Language.SelectedIndex + 1].Length.ToString() };
                         dgv_Data.Rows.Add(row);
+                        checkline++;
                     }
                 }
                 dgv_Data.Refresh();
@@ -136,11 +140,24 @@ namespace Sheltered_Translation_Program
                 string line = sr.ReadLine();
                 string[] arr = line.Split('\t');
 
-                if (arr[0] == "") arr[cb_Language.SelectedIndex] = "";
+                if (arr.Count() != 10)
+                {
+                    MessageBox.Show("파일의 레이아웃에 문제가 있습니다.\n비어있는 값이 포함되어 있습니다.");
+                    this.Close();
+                }
+
+                if (arr[0] == "" || arr[0] == "\t") arr[cb_Language.SelectedIndex] = "";
                 else
                 {
-                    arr[cb_Language.SelectedIndex + 1] = dgv_Data.Rows[p].Cells[1].Value.ToString();
+                    // 언어 자료 삽입
+                    if (dgv_Data.Rows[p].Cells[2].Value == null) arr[cb_Language.SelectedIndex + 1] = " ";
+                    else arr[cb_Language.SelectedIndex + 1] = dgv_Data.Rows[p].Cells[2].Value.ToString();
                     p++;
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    if (arr[i] == "") arr[i] = " ";
                 }
 
                 Columns.AddRange(arr);
@@ -149,16 +166,14 @@ namespace Sheltered_Translation_Program
             sr.Dispose();
 
             StreamWriter sw = new StreamWriter(path + "\\" + FileName(cb_FileName.SelectedIndex), false, Encoding.UTF8);
-            
-            for(int line = 1; line <= Columns.Count; line++)
+
+            for (int line = 0; line < Columns.Count; line++)
             {
-                if (Columns[line - 1] == "") sw.Write("\t");
-                else
-                {
-                    sw.Write(Columns[line - 1]);
-                    if ((line + 1) % 10 != 1) sw.Write("\t");
-                }
-                if (line % 10 == 0) sw.Write("\r\n");
+                if (Columns[line] == "") sw.Write("\t"); // 비어 있으면 Tab
+                else sw.Write(Columns[line]);               // 아니라면 아이템 넣음
+
+                if ((line + 1) >= 10 && (line + 1) % 10 == 0) sw.Write("\r\n"); // 단어 10개 마다 줄바꿈
+                else sw.Write("\t");
             }
             sw.Close();
             MessageBox.Show("저장완료");
@@ -178,7 +193,7 @@ namespace Sheltered_Translation_Program
         // DataGridView Event, Value Characters Count View //
         private void dgv_Data_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 2)
             {
                 string value = dgv_Data.CurrentCell.Value.ToString();
                 rtb_Value.Text = value;
